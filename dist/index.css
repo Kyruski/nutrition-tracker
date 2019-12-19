@@ -4,6 +4,11 @@ td {
   border: 1px black solid;
 } */
 
+.meal-table,
+#date-div-container {
+  margin: 0 auto;
+}
+
 tr th:first-child,
 td:first-child {
   width: 150px;
@@ -36,4 +41,35 @@ tr td {
 .table-head-subtitle {
   color: #e1e1e1;
   font-size: 14px;
+}
+
+#date-div-container {
+  display: flex;
+  width: 265px;
+  justify-content: space-between;
+}
+
+#date-div-container div {
+  margin: 0 auto;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  background: #00548f;
+  color: white;
+}
+
+#date-div {
+  width: 200px;
+}
+
+.arrow-div {
+  width: 30px;
+}
+
+#left-arrow {
+  border-radius: 5px 0px 0px 5px;
+}
+
+#right-arrow {
+  border-radius: 0px 5px 5px 0px;
 }

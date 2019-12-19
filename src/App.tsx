@@ -1,3 +1,4 @@
+//@ts-nocheck
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
@@ -5,6 +6,8 @@ import store from "./store";
 import Table from "./components/Table";
 import { IFood } from "..";
 import * as singleDay from "../singleDay.json";
+import Date from "./containers/Date";
+import DietLog from "./containers/DietLog";
 
 const { useState } = React;
 
@@ -18,10 +21,8 @@ function App(): JSX.Element {
   );
   return (
     <Provider store={store}>
-      {date}
-      {foodsList.map((meal: [IFood, Number][], idx: Number) => (
-        <Table meal={mealNames[idx]} foods={meal} />
-      ))}
+      <Date date={date} />
+      <DietLog foodsList={foodsList} mealNames={mealNames} />
     </Provider>
   );
 }
