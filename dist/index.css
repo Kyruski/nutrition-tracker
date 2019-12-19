@@ -1,0 +1,39 @@
+/* table,
+th,
+td {
+  border: 1px black solid;
+} */
+
+tr th:first-child,
+td:first-child {
+  width: 150px;
+  text-align: left;
+}
+
+tr th:first-child {
+  color: #000;
+  background: #fff;
+  font-size: 24px;
+}
+
+tr td,
+th {
+  text-align: center;
+  background: #f6f6f6;
+}
+
+tr th {
+  width: 80px;
+  height: 50px;
+  background: #00548f;
+  color: #fff;
+}
+
+tr td {
+  height: 40px;
+}
+
+.table-head-subtitle {
+  color: #e1e1e1;
+  font-size: 14px;
+}

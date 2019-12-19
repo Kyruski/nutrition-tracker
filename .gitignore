@@ -1,0 +1,7 @@
+dist/index.js
+node_modules
+.DS_Store
+.env
+logfile
+db.json
+singleDay.json
