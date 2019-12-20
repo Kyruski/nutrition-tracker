@@ -1,38 +1,38 @@
 //@ts-nocheck
 import * as React from "react";
-// import { connect } from "react-redux";
-// import { Dispatch, Action } from "redux";
+import { connect } from "react-redux";
+import { Dispatch, Action } from "redux";
 import { IFood } from "../../index";
 import Table from "../components/Table";
 
 interface IProps {
-  foodsList: [IFood, Number][][];
+  meals: [IFood, Number][][];
   mealNames: String[];
 }
 
-function DietLog({ foodsList, mealNames }: IProps): JSX.Element {
+function DietLog({ meals, mealNames }: IProps): JSX.Element {
   return (
     <>
-      {foodsList.map((meal: [IFood, Number][], idx: Number) => (
-        <Table meal={mealNames[idx]} foods={meal} />
+      {meals.map((meal: [IFood, Number][], idx: Number) => (
+        <Table
+          meal={mealNames[idx]}
+          foods={meal}
+          key={`table-${meal}-${idx}`}
+        />
       ))}
     </>
   );
 }
 
-export default DietLog;
+function mapStateToProps(state: any) {
+  return {
+    mealNames: state.mealNames,
+    meals: state.meals
+  };
+}
 
-// function mapStateToProps(state: any) {
-//   return {
-//     count: state.count
-//   };
-// }
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {};
+}
 
-// function mapDispatchToProps(dispatch: Dispatch) {
-//   return {
-//     inc: () => dispatch(increment()),
-//     dec: () => dispatch(decrement())
-//   };
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(DietLog);

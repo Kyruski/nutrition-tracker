@@ -6,3 +6,7 @@ export interface IFood {
   pro: Number;
   name: String;
 }
+export interface IUpdateMeals {
+  type: String;
+  date: String;
+}

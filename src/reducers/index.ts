@@ -1,6 +1,10 @@
 import { combineReducers } from "redux";
-import count from "./count";
+import date from "./date";
+import mealNames from "./mealNames";
+import meals from "./meals";
 
 export default combineReducers({
-  count
+  date,
+  mealNames,
+  meals
 });
