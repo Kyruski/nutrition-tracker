@@ -26,6 +26,7 @@ td:first-child {
 tfoot > tr > td {
   background: #fff;
   height: 20px;
+  font-weight: bold;
 }
 
 tfoot td {
