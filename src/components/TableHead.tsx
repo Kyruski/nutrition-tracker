@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface IProps {
-  headers: String[][];
+  headers: string[][];
 }
 
 function TableHead({ headers }: IProps): JSX.Element {
@@ -9,7 +9,7 @@ function TableHead({ headers }: IProps): JSX.Element {
     <thead>
       <tr>
         {headers.map(
-          (item: String[], idx: Number): JSX.Element => (
+          (item: string[], idx: number): JSX.Element => (
             <th key={`${headers[0][0]}-${idx}`}>
               {item[0]}
               <div className="table-head-subtitle">{item[1]}</div>

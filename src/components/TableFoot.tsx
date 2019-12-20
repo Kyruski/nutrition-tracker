@@ -3,7 +3,7 @@ import { IFood } from "../../index";
 
 interface IProps {
   total: IFood;
-  keysArray: String[];
+  keysArray: string[];
 }
 
 function TableFoot({ total, keysArray }: IProps): JSX.Element {
@@ -11,7 +11,7 @@ function TableFoot({ total, keysArray }: IProps): JSX.Element {
     <tfoot>
       <tr>
         {keysArray.map(
-          (item: String | any, idx: Number): JSX.Element => (
+          (item: string, idx: number): JSX.Element => (
             <td key={`${total.name}-${item}-${idx}`}>{total[item]}</td>
           )
         )}

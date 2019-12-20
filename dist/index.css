@@ -1,6 +1,20 @@
-.meal-table,
 #date-div-container {
   margin: 0 auto;
+}
+
+#add-foods-div {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#diet-log {
+  margin: 0 auto;
+  width: 600px;
+}
+
+input {
+  font-size: 14px;
+  width: 20px;
 }
 
 tr th:first-child,
@@ -25,6 +39,14 @@ tfoot td:first-child {
 }
 tfoot td:last-child {
   border-right: 1px solid #f6f6f6;
+}
+
+tbody td:last-child {
+  background: white;
+}
+
+tbody td:last-child button {
+  color: red;
 }
 
 tr th:first-child {

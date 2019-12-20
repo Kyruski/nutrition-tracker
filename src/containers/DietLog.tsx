@@ -4,27 +4,31 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { IFood } from "../../index";
 import Table from "../components/Table";
+import { addFood } from "../actions";
+import AddFoods from "../components/AddFoods";
 
 interface IProps {
-  meals: [IFood, Number][][];
-  mealNames: String[];
+  meals: [IFood, number][][];
+  mealNames: string[];
+  allFoods: IFood[];
+  add: Function;
 }
 
-function DietLog({ meals, mealNames }: IProps): JSX.Element {
+function DietLog({ meals, mealNames, allFoods, add }: IProps): JSX.Element {
   let mealsTotal: IFood[] = [];
-  // let mealTotal: IFood = {
-  //   id: "",
-  //   calories: 0,
-  //   carbs: 0,
-  //   fats: 0,
-  //   pro: 0,
-  //   name: "Total"
-  // };
+  let mealTotal: IFood = {
+    id: "",
+    calories: 0,
+    carbs: 0,
+    fats: 0,
+    pro: 0,
+    name: "Day's Total"
+  };
 
-  const parseTotals = () => {
-    //quick function to get totals for the day and the meal. Day total currently unused
+  const parseTotals = (): void => {
+    //quick function to get totals for the day and the meal.
     for (let meal of meals) {
-      let iFood = {
+      let iFood: IFood = {
         id: "",
         calories: 0,
         carbs: 0,
@@ -38,10 +42,10 @@ function DietLog({ meals, mealNames }: IProps): JSX.Element {
         iFood.carbs += food[0].carbs * food[1];
         iFood.fats += food[0].fats * food[1];
         iFood.pro += food[0].pro * food[1];
-        // mealTotal.calories += food[0].calories * food[1];
-        // mealTotal.carbs += food[0].carbs * food[1];
-        // mealTotal.fats += food[0].fats * food[1];
-        // mealTotal.pro += food[0].pro * food[1];
+        mealTotal.calories += food[0].calories * food[1];
+        mealTotal.carbs += food[0].carbs * food[1];
+        mealTotal.fats += food[0].fats * food[1];
+        mealTotal.pro += food[0].pro * food[1];
       }
       mealsTotal.push(iFood);
     }
@@ -50,28 +54,37 @@ function DietLog({ meals, mealNames }: IProps): JSX.Element {
   parseTotals();
 
   return (
-    <>
-      {meals.map((meal: [IFood, Number][], idx: Number) => (
-        <Table
-          meal={mealNames[idx]}
-          foods={meal}
-          total={mealsTotal[idx]}
-          key={`table-${meal}-${idx}`}
-        />
-      ))}
-    </>
+    <div id="diet-log">
+      {meals.map(
+        (meal: [IFood, number][], idx: number): JSX.Element => (
+          <Table
+            meal={mealNames[idx]}
+            foods={meal}
+            total={mealsTotal[idx]}
+            key={`table-${meal}-${idx}`}
+          />
+        )
+      )}
+      <Table meal={""} foods={undefined} total={mealTotal} />
+      <br />
+      <div id="add-foods-div">Add foods</div>
+      <AddFoods allFoods={allFoods} add={add} mealNames={mealNames} />
+    </div>
   );
 }
 
 function mapStateToProps(state: any) {
   return {
     mealNames: state.mealNames,
-    meals: state.meals
+    meals: state.meals,
+    allFoods: state.allFoods
   };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
-  return {};
+  return {
+    add: (food, mealIdx, servings) => dispatch(addFood(food, mealIdx, servings))
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DietLog);

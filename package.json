@@ -9,7 +9,7 @@
     "build-prod": "webpack -p --config webpack.config.js",
     "ts-dev": "ts-node-dev --respawn --transpileOnly --resolveJsonModule ./src/index.ts",
     "populate-data": "node ./scripts/scripts.js",
-    "start": "npm i && rm -rf ./db.json && npm run populate-data && npm run build-prod && open ./dist/index.html",
+    "start": "npm i && rm -rf ./db.json ./foods.json && npm run populate-data && npm run build-prod && open ./dist/index.html",
     "dmc": "open ./dist/index.html"
   },
   "author": "",

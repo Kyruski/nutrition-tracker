@@ -4,4 +4,4 @@ node_modules
 .env
 logfile
 db.json
-singleDay.json
+foods.json

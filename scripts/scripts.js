@@ -26,6 +26,7 @@ function makeFoods() {
       fats,
     });
   }
+  fs.appendFileSync('foods.json', JSON.stringify(foods));
   return foods;
 }
 

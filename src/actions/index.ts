@@ -13,3 +13,9 @@ export const updateMealNames: Function = (): Action => {
 export const updateMeals: Function = (date): IUpdateMeals => {
   return { type: "UPDATE_MEALS", date };
 };
+export const removeFood: Function = (food): IUpdateMeals => {
+  return { type: "REMOVE_FOOD", food };
+};
+export const addFood: Function = (food, mealIdx, servings): IUpdateMeals => {
+  return { type: "ADD_FOOD", food, mealIdx, servings };
+};

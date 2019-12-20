@@ -2,9 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 import { nextDay, prevDay, updateMeals } from "../actions/index";
+import { IState } from "../..";
 
 interface IProps {
-  date: String;
+  date: string;
   next: Function;
   prev: Function;
   updateDate: Function;
@@ -13,7 +14,7 @@ interface IProps {
 const { useEffect } = React;
 
 function Date({ date, next, prev, updateDate }: IProps): JSX.Element {
-  const day = Number(date.split("-")[2]); //Grabbing the Day of the Month
+  const day: number = Number(date.split("-")[2]); //Grabbing the Day of the Month
 
   useEffect(() => {
     updateDate(date);
@@ -40,7 +41,7 @@ function Date({ date, next, prev, updateDate }: IProps): JSX.Element {
   );
 }
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: IState) {
   return {
     date: state.date
   };

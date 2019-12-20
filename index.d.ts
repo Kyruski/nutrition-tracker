@@ -1,12 +1,22 @@
 export interface IFood {
-  id: String;
-  calories: Number;
-  carbs: Number;
-  fats: Number;
-  pro: Number;
-  name: String;
+  id: string;
+  calories: number;
+  carbs: number;
+  fats: number;
+  pro: number;
+  name: string;
 }
 export interface IUpdateMeals {
-  type: String;
-  date: String;
+  type: string;
+  date?: string;
+  food?: [IFood, number];
+  mealIdx?: number;
+  servings?: number;
+}
+
+export interface IState {
+  date: string;
+  mealNames: string[];
+  meals: [IFood, number][][];
+  allFoods: IFood[];
 }
