@@ -5,10 +5,10 @@ import { IFood } from "../../index";
 
 interface IProps {
   food: [IFood, Number];
+  keysArray: String[];
 }
 
-function ModifyFoodRow({ food }: IProps): JSX.Element {
-  const keysArray = ["name", "calories", "carbs", "fats", "pro"];
+function ModifyFoodRow({ food, keysArray }: IProps): JSX.Element {
   const [foodItem, servings] = food;
   const modifiedFoods: IFood = {
     id: foodItem.id,

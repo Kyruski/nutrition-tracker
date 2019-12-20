@@ -1,4 +1,4 @@
-import { Action } from "redux";
+//@ts-nocheck
 import { IFood, IUpdateMeals } from "../../index";
 import * as monthLog from "../../db.json";
 

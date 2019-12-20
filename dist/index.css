@@ -15,6 +15,24 @@ td:first-child {
   text-align: left;
 }
 
+tfoot > tr > td {
+  background: #fff;
+  height: 20px;
+}
+
+tfoot td {
+  border-bottom: 1px solid #f6f6f6;
+  border-top: 1px solid #f6f6f6;
+}
+
+tfoot td:first-child {
+  border-left: 1px solid #f6f6f6;
+  text-align: right;
+}
+tfoot td:last-child {
+  border-right: 1px solid #f6f6f6;
+}
+
 tr th:first-child {
   color: #000;
   background: #fff;

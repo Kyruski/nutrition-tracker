@@ -17,8 +17,7 @@ function Date({ date, next, prev, updateDate }: IProps): JSX.Element {
 
   useEffect(() => {
     updateDate(date);
-    //@ts-ignore
-  }, date);
+  }, [date]);
 
   return (
     <div id="date-div-container">
