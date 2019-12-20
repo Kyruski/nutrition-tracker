@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-dev": "webpack -d --watch --display-error-details --config webpack.config.js",
+    "build-prod": "webpack -p --config webpack.config.js",
     "ts-dev": "ts-node-dev --respawn --transpileOnly --resolveJsonModule ./src/index.ts",
-    "populate-data": "node ./scripts/scripts.js"
+    "populate-data": "node ./scripts/scripts.js",
+    "start": "npm i && rm -rf ./db.json && npm run populate-data && npm run build-prod && open ./dist/index.html"
   },
   "author": "",
   "license": "ISC",

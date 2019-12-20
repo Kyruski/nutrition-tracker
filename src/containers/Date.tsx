@@ -13,24 +13,28 @@ interface IProps {
 const { useEffect } = React;
 
 function Date({ date, next, prev, updateDate }: IProps): JSX.Element {
-  const day = Number(date.split("-")[2]);
+  const day = Number(date.split("-")[2]); //Grabbing the Day of the Month
 
   useEffect(() => {
     updateDate(date);
-  }, [date]);
+  }, [date]); //Whenever Date changes, updates the meals list
 
   return (
     <div id="date-div-container">
       <div
         id="left-arrow"
         className="arrow-div"
-        onClick={() => (day > 1 ? prev() : () => {})}
+        onClick={() =>
+          day > 1 ? prev() : () => {}
+        } /*only execute if it isn't the first of the month. no day 0*/
       >{`❮`}</div>
       <div id="date-div">{date}</div>
       <div
         id="right-arrow"
         className="arrow-div"
-        onClick={() => (day < 31 ? next() : () => {})}
+        onClick={() =>
+          day < 31 ? next() : () => {}
+        } /*only execute if it isn't the last of the month. no 32*/
       >{`❯`}</div>
     </div>
   );

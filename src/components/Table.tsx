@@ -11,8 +11,9 @@ interface IProps {
 }
 
 function Table({ meal, foods, total }: IProps): JSX.Element {
-  const keysArray = ["name", "calories", "carbs", "fats", "pro"];
+  const keysArray = ["name", "calories", "carbs", "fats", "pro"]; //Array of important keys to map through for the table in order
   const headers = [
+    //Headers for the Table Head
     [meal, ""],
     ["Calories", "kcal"],
     ["Carbs", "g"],
