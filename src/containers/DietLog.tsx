@@ -1,7 +1,7 @@
 //@ts-nocheck
 import * as React from "react";
 import { connect } from "react-redux";
-import { Dispatch, Action } from "redux";
+import { Dispatch } from "redux";
 import { IFood } from "../../index";
 import Table from "../components/Table";
 
