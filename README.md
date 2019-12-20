@@ -45,8 +45,10 @@ npm run dmc
 
 - Calories and macronutrients displayed for each individual foods
 - Multiple meals per day
-- Calorie and macronutrient totals for a meal
+- Calorie and macronutrient totals for a meal and the whole day
 - Navigation through different days
+- Adding Foods to the day (not saved/written to DB)
+- Removing Foods from the day (not saved/written to DB)
 
 ## Built With
 
